@@ -1,0 +1,20 @@
+{
+	"printWidth": 100,
+	"singleQuote": true,
+	"trailingComma": "none",
+	"useTabs": true,
+	"overrides": [
+		{
+			"files": "*.scss",
+			"options": {
+				"singleQuote": false
+			}
+		},
+		{
+			"files": "*.md",
+			"options": {
+				"useTabs": false
+			}
+		}
+	]
+}
