@@ -1,0 +1,93 @@
+.button {
+	position: relative;
+	z-index: 1;
+	box-sizing: border-box;
+	padding: 12px 2rem;
+	font-weight: 700;
+	font-size: 1rem;
+	line-height: 20px;
+	font-family: inherit;
+	text-align: center;
+	color: $color-basic-extra-dark;
+	background-color: $color-basic-extra-light;
+	border: none;
+	border-radius: 26px;
+	outline: none;
+	box-shadow: 0 0 0 4px rgba($color-basic-extra-light, 0.4), $shadow-small;
+	cursor: pointer;
+	user-select: none;
+
+	@include interactive-focus {
+		background-color: rgba($color-basic-extra-light, 0.5);
+		box-shadow: 0 0 0 2px $color-basic-extra-dark, $shadow-small;
+	}
+
+	&:hover {
+		background-color: rgba($color-basic-extra-light, 0.4);
+		box-shadow: 0 0 0 4px $color-basic-extra-light, $shadow-hover;
+	}
+
+	&:active {
+		background-color: $color-basic-extra-light;
+		box-shadow: 0 0 0 2px $color-basic-extra-dark, $shadow-small;
+	}
+
+	&:disabled {
+		color: $color-basic-neutral;
+		background-color: $color-basic-light;
+		box-shadow: 0 0 0 4px rgba($color-basic-extra-light, 0.4);
+		pointer-events: none;
+	}
+
+	&--wait {
+		position: relative;
+		padding-right: 56px;
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 14px;
+			right: 2rem;
+			width: 16px;
+			height: 16px;
+			animation: rotate 1s linear infinite;
+
+			@include graphic-icon("spinner-dark", false);
+		}
+	}
+
+	&--primary {
+		color: $color-basic-extra-light;
+		background-color: $color-special-extra-bright;
+		box-shadow: 0 0 0 4px rgba($color-special-extra-bright, 0.3), $shadow-small;
+
+		@include interactive-focus {
+			color: $color-basic-extra-light;
+			background-color: $color-special-extra-bright;
+		}
+
+		&:hover {
+			color: $color-basic-extra-dark;
+			background-color: rgba($color-basic-extra-light, 0.3);
+			box-shadow: 0 0 0 4px $color-special-extra-bright;
+		}
+
+		&:active {
+			color: $color-basic-extra-light;
+			background-color: $color-special-light;
+			box-shadow: 0 0 0 2px $color-basic-extra-dark, $shadow-small;
+		}
+
+		&:disabled {
+			color: $color-basic-dark;
+			background-color: $color-basic-neutral;
+			box-shadow: 0 0 0 4px rgba($color-basic-neutral, 0.3);
+		}
+
+		&.button--wait::after {
+			@include graphic-icon("spinner-light", false);
+		}
+	}
+
+	@include interactive-transitions;
+}

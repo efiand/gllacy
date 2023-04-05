@@ -2,4 +2,18 @@
 	display: grid;
 	grid-template-rows: min-content 1fr min-content;
 	min-height: 100vh;
+	padding: 0 15px;
+	color: $color-basic-extra-dark;
+	background-color: var(--page-bg-color, $color-special-light);
+	transition: background-color $transition-default;
+
+	@include media-desktop {
+		padding: 0 calc(50% - 585px);
+	}
+}
+
+.page__main {
+	display: grid;
+	gap: 5rem;
+	align-content: start;
 }

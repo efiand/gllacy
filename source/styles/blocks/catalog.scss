@@ -1,0 +1,103 @@
+.catalog {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 81px 30px;
+	padding: 53px 0 0;
+	list-style: none;
+}
+
+.catalog__card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: 133px 40px 1.5rem;
+	text-align: center;
+	background-color: $color-basic-extra-light;
+	border-radius: 0.5rem;
+}
+
+.catalog__picture {
+	position: absolute;
+	top: -51px;
+	left: 50%;
+	width: 168px;
+	height: 168px;
+	border-radius: 50%;
+	box-shadow: $shadow-small;
+	transform: translateX(-50%);
+
+	img {
+		border-radius: 50%;
+	}
+}
+
+.catalog__title {
+	margin: 0 0 0.5rem;
+
+	@include text-h4;
+}
+
+.catalog__description {
+	margin: 0 0 1rem;
+	color: $color-basic-dark;
+}
+
+.catalog__footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: auto;
+}
+
+.catalog__price {
+	margin: 0;
+
+	@include text-h4;
+}
+
+.catalog__cart {
+	display: flex;
+	width: 2rem;
+	height: 2rem;
+	color: $color-basic-extra-light;
+	background-color: $color-special-extra-bright;
+	border: 2px solid $color-special-extra-bright;
+	border-radius: 50%;
+	outline: none;
+	cursor: pointer;
+
+	@include interactive-transitions;
+
+	&::before {
+		content: "";
+		width: 1rem;
+		height: 1rem;
+		margin: auto;
+		background-color: currentColor;
+
+		@include graphic-icon("cart");
+	}
+
+	&:hover {
+		color: inherit;
+		background-color: rgba($color-basic-extra-light, 0.3);
+	}
+
+	&:active {
+		color: inherit;
+		background-color: $color-special-extra-light;
+	}
+
+	&:disabled {
+		color: $color-basic-dark;
+		background-color: $color-basic-neutral;
+		border-color: $color-basic-neutral;
+		pointer-events: none;
+	}
+
+	@include interactive-focus {
+		color: $color-basic-extra-light;
+		background-color: $color-special-extra-bright;
+		border-color: $color-basic-extra-dark;
+	}
+}

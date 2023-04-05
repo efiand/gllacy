@@ -152,7 +152,6 @@
 		"function-max-empty-lines": 1,
 		"function-name-case": "lower",
 		"function-parentheses-newline-inside": "always-multi-line",
-		"function-parentheses-space-inside": "never",
 		"function-url-quotes": "always",
 		"function-url-scheme-disallowed-list": [
 			"/^\\./",

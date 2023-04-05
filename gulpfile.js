@@ -19,9 +19,15 @@ import placeSpriteIcons from './gulp/place-sprite-icons.js';
 import watch from './gulp/watch.js';
 
 const cleanOnStart = () => deleteAsync('build');
-const cleanOnEnd = () => deleteAsync('build/scripts/page.js');
+const cleanOnEnd = () => deleteAsync('build/scripts/apps');
 
 const lint = gulp.parallel(lintEditorconfig, lintMarkdown, lintScripts, lintStyles);
+
+const test = gulp.series(
+	buildSsrScript,
+	gulp.parallel(lint, buildPages, buildScripts, buildStyles),
+	cleanOnEnd
+);
 
 const build = gulp.series(
 	cleanOnStart,
@@ -40,4 +46,4 @@ const build = gulp.series(
 	cleanOnEnd
 );
 
-export default isTest ? gulp.parallel(lint, buildPages, buildStyles) : build;
+export default isTest ? test : build;

@@ -1,0 +1,42 @@
+$solid-bg: linear-gradient($color-basic-white, $color-basic-white);
+$striped-bg: repeating-linear-gradient(
+	130deg,
+	$color-special-extra-bright,
+	$color-special-extra-bright 10px,
+	#edf1f5 10px,
+	#edf1f5 24px,
+	#69a9ff 24px,
+	#69a9ff 32px,
+	#edf1f5 32px,
+	#edf1f5 45px
+);
+
+.subscribe {
+	position: relative;
+	z-index: 1;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 44px 1rem;
+	align-self: start;
+	padding: 26px 26px 28px;
+	background-image: $solid-bg, $striped-bg;
+	background-position: 0 0;
+	background-clip: padding-box, border-box;
+	background-origin: padding-box, border-box;
+	border: 6px solid transparent;
+	border-radius: 1rem;
+}
+
+.subscribe__description {
+	grid-column: 1 / -1;
+	margin: 0;
+	color: $color-basic-dark;
+}
+
+.subscribe__field {
+	grid-column: span 2;
+}
+
+.subscribe__submit {
+	margin: 2px 0;
+}

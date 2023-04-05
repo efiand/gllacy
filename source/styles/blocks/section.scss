@@ -1,0 +1,38 @@
+.section--accent {
+	position: relative;
+	z-index: 1;
+	padding: 5rem 4rem;
+	background-color: #eee0c4;
+	background-position: 30px 0;
+	background-size: 100%;
+	border-radius: 1rem;
+
+	@include graphic-retina("wafer");
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 1.5rem;
+		right: 1.5rem;
+		bottom: 1.5rem;
+		left: 1.5rem;
+		z-index: -1;
+		background-color: $color-basic-white;
+		border-radius: inherit;
+	}
+
+	.section__heading {
+		margin-bottom: 56px;
+	}
+}
+
+.section__heading {
+	margin: 0 0 55px;
+	text-align: center;
+
+	@include text-h2;
+}
+
+.section__body {
+	margin: 0;
+}

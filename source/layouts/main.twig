@@ -3,25 +3,31 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{{ projectName }}</title>
-		<meta name="description" content="{{ description }}">
-		<link rel="stylesheet" href="{{ rootPath }}styles/main.css{{ version }}">
+
+		{{ headCode }}
 
 		{% for weight in [400, 700] %}
-			<link rel="preload" href="fonts/ptsans-{{ weight }}.woff2" as="font" crossorigin="anonymous">
+			<link rel="preload" href="fonts/inter-{{ weight }}.woff2" as="font" crossorigin="anonymous">
 		{% endfor %}
+
+		<link rel="stylesheet" href="{{ rootPath }}styles/main.css{{ version }}">
+		<link rel="apple-touch-icon" sizes="180x180" href="{{ rootPath }}apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="{{ rootPath }}favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="{{ rootPath }}favicon-16x16.png">
+		<link rel="manifest" href="{{ rootPath }}site.webmanifest">
+		<link rel="mask-icon" href="{{ rootPath }}safari-pinned-tab.svg" color="#e84d37">
+		<meta name="msapplication-TileColor" content="#e84d37">
+		<meta name="theme-color" content="#e84d37">
 	</head>
+
 	<body>
 		<div class="page">
-			{% include 'blocks/page-header.twig' %}
-			<main>
-				{% block main %}{% endblock %}
-			</main>
-			{% include 'blocks/page-footer.twig' %}
+			{{ app.page }}
 		</div>
 
-		{% block modal %}{% endblock %}
-
+		<script>
+			window.appData = {{ appData|json_encode() }};
+		</script>
 		<script src="{{ rootPath }}scripts/main.js{{ version }}"></script>
 
 		{% if isDev %}

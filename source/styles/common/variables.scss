@@ -1,5 +1,27 @@
-// https://www.htmlcsscolor.com/hex/000000
-$color-black: #000000;
-$color-white: #ffffff;
+$color-basic-black: #000000;
+$color-basic-extra-dark: #2d3440;
+$color-basic-dark: #565c66;
+$color-basic-neutral: #b9b9b9;
+$color-basic-light: #e7e7e7;
+$color-basic-extra-light: #fcfcfc;
+$color-basic-white: #ffffff;
+
+$color-special-extra-bright: #ff2f64;
+$color-special-bright: #ff4a78;
+$color-special-neutral: #ff7799;
+$color-special-light: #feafc3;
+$color-special-extra-light: #ffcbd8;
+
+$color-status-error: #ea5454;
+$color-status-warning: #fd912e;
+$color-status-success: #00e484;
+
+$shadow-small: 0 4px 12px rgba($color-basic-extra-dark, 0.1);
+$shadow-medium: 0 8px 16px rgba($color-basic-extra-dark, 0.12);
+$shadow-big: 0 15px 40px rgba($color-basic-extra-dark, 0.12);
+$shadow-hover: 0 4px 15px rgba(133, 133, 133, 0.15);
 
 $transition-default: 0.3s ease-in-out;
+$transition-appear: 0.5s ease-in-out;
+
+$gap: 30px;

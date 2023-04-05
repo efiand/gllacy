@@ -1,0 +1,40 @@
+.characteristics {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 2.5rem 2rem;
+	padding: 0;
+	list-style: none;
+}
+
+.characteristics__item {
+	position: relative;
+	padding-left: 4rem;
+	color: $color-basic-dark;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 44px;
+		height: 44px;
+		border: 2px solid $color-basic-extra-dark;
+		border-radius: 50%;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0.5rem;
+		left: 0.5rem;
+		width: 2rem;
+		height: 2rem;
+		background-color: $color-basic-extra-dark;
+	}
+
+	@each $modifier in ("ice-cream", "cow", "leaf", "thermometer") {
+		&--#{$modifier}::after {
+			@include graphic-icon($modifier);
+		}
+	}
+}

@@ -1,0 +1,43 @@
+.search {
+	position: relative;
+	min-width: 324px;
+	padding: 1.5rem 1rem;
+}
+
+.search__field {
+	&:placeholder-shown ~ .search__reset {
+		display: none;
+	}
+}
+
+.search__reset {
+	position: absolute;
+	top: 40px;
+	right: 29px;
+	padding: 0;
+	background-color: transparent;
+	border: none;
+	border-radius: 2px;
+	cursor: pointer;
+
+	&::before {
+		content: "";
+		display: block;
+		width: 16px;
+		height: 16px;
+		background-color: $color-basic-neutral;
+
+		@include graphic-icon("cross");
+	}
+
+	@include interactive-defaults;
+}
+
+.search__submit {
+	width: 100%;
+	margin-top: 1rem;
+
+	&:not(:focus-visible) {
+		@include visibility-a11y;
+	}
+}

@@ -1,0 +1,29 @@
+.announce {
+	padding: 2rem;
+	padding-right: 235px;
+	background-color: $color-basic-white;
+	background-repeat: no-repeat;
+	background-position: 100% 0;
+	border-radius: 1rem;
+
+	&--sherbet {
+		@include graphic-retina("sherbet");
+	}
+}
+
+.announce__title {
+	margin: 0 0 13px;
+	font-weight: 400;
+	font-size: 1rem;
+	line-height: 1.25;
+	color: $color-basic-dark;
+}
+
+.announce__link {
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 30px;
+	text-decoration: none;
+
+	@include interactive-defaults;
+}

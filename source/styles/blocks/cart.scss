@@ -1,0 +1,90 @@
+.cart {
+	min-width: 345px;
+	padding: 3rem;
+
+	&--empty {
+		min-width: 240px;
+		margin: 0;
+		padding: 3rem 1.5rem;
+		text-align: center;
+
+		@include text-h3;
+	}
+}
+
+.cart__title {
+	margin: 0 0 2rem;
+
+	@include text-h3;
+}
+
+.cart__offers {
+	width: 100%;
+	margin-bottom: 2rem;
+	border-bottom: 1px solid $color-basic-light;
+	border-collapse: collapse;
+
+	@include text-h5;
+}
+
+.cart__cell {
+	vertical-align: middle;
+	padding: 0 1rem 1.5rem 0;
+
+	&:last-child {
+		padding-right: 0;
+	}
+
+	&--picture {
+		width: 46px;
+		overflow: hidden;
+		white-space: nowrap;
+		color: $color-basic-white;
+	}
+
+	&--price {
+		width: 87px;
+	}
+
+	&--delete {
+		width: 1rem;
+	}
+}
+
+.cart__row:last-child .cart__cell {
+	padding-bottom: 2rem;
+}
+
+.cart__small {
+	margin: 0.25rem 0 0;
+	font-weight: 400;
+	color: $color-basic-neutral;
+
+	@include text-secondary;
+}
+
+.cart__delete {
+	vertical-align: top;
+	width: 20px;
+	height: 20px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+
+	@include graphic-icon("cross", false);
+	@include interactive-defaults;
+}
+
+.cart__footer {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.cart__note {
+	justify-self: end;
+	margin: 0;
+
+	@include text-h5;
+}

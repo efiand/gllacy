@@ -1,0 +1,33 @@
+.login {
+	min-width: 324px;
+	padding: 48px;
+}
+
+.login__title {
+	margin: 0 0 2rem;
+
+	@include text-h3;
+}
+
+.login__group {
+	margin: 0 0 1rem;
+
+	&:last-of-type {
+		margin-bottom: 2rem;
+	}
+}
+
+.login__footer {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: center;
+	gap: 23px;
+}
+
+.login__links {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	@include text-secondary;
+}

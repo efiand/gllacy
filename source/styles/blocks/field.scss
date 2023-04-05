@@ -1,0 +1,66 @@
+.field {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 13px 15px;
+	font-size: 1rem;
+	line-height: 20px;
+	font-family: inherit;
+	color: $color-basic-extra-dark;
+	background-color: $color-basic-white;
+	border: 1px solid $color-basic-neutral;
+	border-radius: 0.25rem;
+	outline: none;
+	appearance: textfield;
+
+	&::placeholder {
+		color: $color-basic-neutral;
+		opacity: 1;
+	}
+
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button {
+		appearance: none;
+	}
+
+	&::-webkit-search-decoration,
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-results-button,
+	&::-webkit-search-results-decoration {
+		display: none;
+	}
+
+	&:hover {
+		border-color: currentColor;
+	}
+
+	&:disabled {
+		color: rgba($color-basic-extra-dark, 0.65);
+		background-color: $color-basic-light;
+		cursor: not-allowed;
+
+		&:hover {
+			color: $color-basic-extra-dark;
+			border-color: $color-basic-neutral;
+		}
+	}
+
+	&:invalid:not(:placeholder-shown) {
+		border-color: $color-status-error;
+
+		&:hover {
+			box-shadow: inset 0 0 0 1px $color-status-error;
+		}
+	}
+
+	@include interactive-focus {
+		border-color: currentColor;
+		box-shadow: inset 0 0 0 1px currentColor;
+
+		&:invalid:not(:placeholder-shown) {
+			border-color: $color-status-error;
+			box-shadow: inset 0 0 0 1px $color-status-error;
+		}
+	}
+
+	@include interactive-transitions;
+}

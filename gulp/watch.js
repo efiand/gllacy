@@ -2,6 +2,7 @@ import { STATIC_FILES, StatusCode } from './common/constants.js';
 import lintEditorconfig, { EDITORCONFIG_FILES } from './lint-editorconfig.js';
 import buildScripts from './build-scripts.js';
 import buildSprite from './build-sprite.js';
+import buildSsrScript from './build-ssr-script.js';
 import buildStyles from './build-styles.js';
 import buildWebp from './build-webp.js';
 import gulp from 'gulp';
@@ -33,11 +34,15 @@ const watch = () => {
 				const status = StatusCode[error.includes('Unable to find') ? 'NOT_FOUND' : 'ERROR'];
 				res.writeHead(status);
 
-				const { code: errorPageCode, error: errorPageError } = await renderPage(
-					`${status}.html.twig`,
-					{ error }
-				);
-				return res.end(errorPageError ? error : errorPageCode);
+				try {
+					const { code: errorPageCode } = await renderPage('404.html.twig', {
+						error,
+						status
+					});
+					return res.end(errorPageCode);
+				} catch (secondaryError) {
+					return res.end(error);
+				}
 			}
 
 			return res.end(code);
@@ -48,8 +53,11 @@ const watch = () => {
 
 	gulp.watch(EDITORCONFIG_FILES, lintEditorconfig);
 	gulp.watch(['*.md', '{gulp,source}/**/*.md'], lintMarkdown);
-	gulp.watch(['*.js', '{gulp,source}/**/*.{js,svelte}'], lintScripts);
-	gulp.watch('source/scripts/**/*.{js,svelte}', buildScripts);
+	gulp.watch(['.eslintrc', '*.js', '{gulp,source}/**/*.{js,svelte,vue}'], lintScripts);
+	gulp.watch(
+		'source/scripts/**/*.{js,svelte,vue}',
+		gulp.series(gulp.parallel(buildScripts, buildSsrScript), reload)
+	);
 	gulp.watch('source/{data,layouts}/**/*.{js,twig}', reload);
 	gulp.watch('source/place/favicons/**/*.{png,svg}', placeFavicons);
 	gulp.watch('source/place/images/**/*.{jpg,png,svg}', placeImages);
@@ -58,7 +66,7 @@ const watch = () => {
 	gulp.watch('source/sprite/**/*.svg', gulp.series(buildSprite, reload));
 	gulp.watch(['source/static/**', '!source/static/images/**/*.{jpg,png}'], reload);
 	gulp.watch('source/static/images/**/*.{jpg,png}', gulp.series(buildWebp, reload));
-	gulp.watch('source/styles/**/*.scss', gulp.parallel(buildStyles, lintStyles));
+	gulp.watch(['.stylelintrc', 'source/styles/**/*.scss'], gulp.parallel(buildStyles, lintStyles));
 };
 
 export default watch;

@@ -1,0 +1,65 @@
+.socials {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 1.5rem);
+	gap: 1rem;
+	padding: 0;
+	list-style: none;
+}
+
+.socials__link {
+	position: relative;
+	outline: none;
+	box-shadow: 0 0 0 2px rgba($color-basic-extra-light, 0.3);
+
+	@include interactive-focus {
+		box-shadow: 0 0 0 2px $color-basic-extra-dark;
+	}
+
+	&:active {
+		opacity: 0.3;
+	}
+
+	&,
+	&::after {
+		display: block;
+		width: 1.5rem;
+		height: 1.5rem;
+		border-radius: 50%;
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 1rem;
+		height: 1rem;
+		transform: translate(-50%, -50%);
+		transition: background-color $transition-default;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		&::before {
+			background-color: $color-basic-extra-dark;
+		}
+	}
+
+	&::after {
+		content: "";
+		background-color: $color-basic-white;
+	}
+
+	&--telegram::after {
+		@include graphic-icon("telegram");
+	}
+
+	&--vk::after {
+		@include graphic-icon("vk");
+	}
+
+	&--youtube::after {
+		@include graphic-icon("youtube");
+	}
+}

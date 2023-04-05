@@ -1,9 +1,19 @@
 {
+	"pluginSearchDirs": [
+		"."
+	],
 	"printWidth": 100,
+	"proseWrap": "never",
 	"singleQuote": true,
 	"trailingComma": "none",
 	"useTabs": true,
 	"overrides": [
+		{
+			"files": "*.md",
+			"options": {
+				"useTabs": false
+			}
+		},
 		{
 			"files": "*.scss",
 			"options": {
@@ -11,9 +21,9 @@
 			}
 		},
 		{
-			"files": "*.md",
+			"files": "*.svelte",
 			"options": {
-				"useTabs": false
+				"parser": "svelte"
 			}
 		}
 	]
