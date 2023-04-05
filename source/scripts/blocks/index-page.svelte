@@ -2,6 +2,7 @@
 	import Announce from './announce.svelte';
 	import Catalog from './catalog.svelte';
 	import Characteristics from './characteristics.svelte';
+	import Delivery from './delivery.svelte';
 	import Promo from './promo.svelte';
 	import Promotion from './promotion.svelte';
 	import Subscribe from './subscribe.svelte';
@@ -51,3 +52,5 @@
 
 	<Subscribe />
 </div>
+
+<Delivery />

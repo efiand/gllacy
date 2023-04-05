@@ -1,0 +1,60 @@
+.tooltip {
+	position: relative;
+
+	&:hover,
+	&:focus-within {
+		.tooltip__text {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}
+
+.tooltip__toggle {
+	display: block;
+	width: 14px;
+	height: 14px;
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	user-select: none;
+
+	@include graphic-icon("info", false);
+}
+
+.tooltip__text {
+	position: absolute;
+	top: -12px;
+	left: calc(100% + 11px);
+	width: 146px;
+	padding: 10px 8px;
+	visibility: hidden;
+	font-weight: 400;
+	text-transform: none;
+	color: $color-basic-dark;
+	background-color: $color-basic-extra-light;
+	border: 1px solid $color-basic-neutral;
+	border-radius: 1px;
+	box-shadow: 0 2px 12px rgba(173, 152, 143, 0.18);
+	opacity: 0;
+	transition: 0.3s ease-in-out;
+	transition-property: opacity, visibility;
+
+	@include text-small;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 12px;
+		left: -6px;
+		width: 10px;
+		height: 10px;
+		background-color: inherit;
+		border: inherit;
+		border-top-color: transparent;
+		border-right-color: transparent;
+		transform: rotate(45deg);
+	}
+}

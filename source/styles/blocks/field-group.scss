@@ -1,0 +1,13 @@
+.field-group {
+	display: grid;
+	gap: 0.5rem;
+}
+
+.field-group__text {
+	display: flex;
+}
+
+.field-group__label {
+	font-weight: 700;
+	line-height: 20px;
+}
