@@ -5,6 +5,25 @@ export default ({ error, pageName }) => ({
 	appData: {
 		page: {
 			error,
+			footerLinks: [
+				{
+					fav: true,
+					title: 'Для поставщиков',
+					url: '#!'
+				},
+				{
+					title: 'Наши документы',
+					url: '#!'
+				},
+				{
+					title: 'О производстве',
+					url: '#!'
+				},
+				{
+					title: 'Экологические стандарты',
+					url: '#!'
+				}
+			],
 			goods: [
 				{
 					description: html`Сливочное мороженое с&nbsp;малиновым джемом`,
