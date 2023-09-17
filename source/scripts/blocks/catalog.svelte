@@ -28,7 +28,6 @@
 
 			<Picture
 				className="catalog__picture"
-				extname="png"
 				filename="good-{id}"
 				width="168"
 				height="168"

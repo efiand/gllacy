@@ -39,7 +39,6 @@
 						<td class="cart__cell cart__cell--picture">
 							<Picture
 								filename="good-{id}"
-								extname="png"
 								width="46"
 								height="46"
 								alt="Изображение мороженого «{good.title}»."

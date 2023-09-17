@@ -163,15 +163,15 @@
 	}
 
 	&--1 {
-		@include graphic-retina("promo-1", "png");
+		@include graphic-retina("promo-1");
 	}
 
 	&--2 {
-		@include graphic-retina("promo-2", "png");
+		@include graphic-retina("promo-2");
 	}
 
 	&--3 {
-		@include graphic-retina("promo-3", "png");
+		@include graphic-retina("promo-3");
 	}
 }
 

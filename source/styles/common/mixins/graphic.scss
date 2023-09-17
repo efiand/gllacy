@@ -8,22 +8,14 @@
 	}
 }
 
-@mixin graphic-webp($filename, $extname: "jpg") {
-	$webp: url("../images/#{$filename}.webp");
-
-	@supports (background-image: $webp) {
-		background-image: $webp;
-	}
-
-	@supports not (background-image: $webp) {
-		background-image: url("../images/#{$filename}.#{$extname}");
-	}
+@mixin graphic($filename, $extname: "webp") {
+	background-image: url("../images/#{$filename}.#{$extname}");
 }
 
-@mixin graphic-retina($filename, $extname: "jpg") {
-	@include graphic-webp($filename, $extname);
+@mixin graphic-retina($filename, $extname: "webp") {
+	@include graphic($filename, $extname);
 
 	@include media-retina {
-		@include graphic-webp("#{$filename}@2x", $extname);
+		@include graphic("#{$filename}@2x", $extname);
 	}
 }

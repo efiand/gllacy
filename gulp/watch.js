@@ -4,7 +4,6 @@ import buildScripts from './build-scripts.js';
 import buildSprite from './build-sprite.js';
 import buildSsrScript from './build-ssr-script.js';
 import buildStyles from './build-styles.js';
-import buildWebp from './build-webp.js';
 import gulp from 'gulp';
 import lintMarkdown from './lint-markdown.js';
 import lintScripts from './lint-scripts.js';
@@ -64,8 +63,7 @@ const watch = () => {
 	gulp.watch('source/place/pixelperfect/**/*.{jpg,png}', placePixelperfectImages);
 	gulp.watch('source/place/sprite/**/*.svg', placeSpriteIcons);
 	gulp.watch('source/sprite/**/*.svg', gulp.series(buildSprite, reload));
-	gulp.watch(['source/static/**', '!source/static/images/**/*.{jpg,png}'], reload);
-	gulp.watch('source/static/images/**/*.{jpg,png}', gulp.series(buildWebp, reload));
+	gulp.watch('source/static/**', reload);
 	gulp.watch(['.stylelintrc', 'source/styles/**/*.scss'], gulp.parallel(buildStyles, lintStyles));
 };
 

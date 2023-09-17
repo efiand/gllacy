@@ -1,4 +1,5 @@
 import clean from 'gulp-clean';
+import createWebp from 'gulp-webp';
 import gulp from 'gulp';
 import optimizeImages from 'gulp-imagemin';
 import optimizeJpeg from 'imagemin-mozjpeg';
@@ -17,6 +18,7 @@ const placeImages = () =>
 			])
 		)
 		.pipe(clean())
+		.pipe(createWebp({ quality: 75 }))
 		.pipe(gulp.dest('source/static/images'));
 
 export default placeImages;

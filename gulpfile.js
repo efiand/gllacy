@@ -4,7 +4,6 @@ import buildScripts from './gulp/build-scripts.js';
 import buildSprite from './gulp/build-sprite.js';
 import buildSsrScript from './gulp/build-ssr-script.js';
 import buildStyles from './gulp/build-styles.js';
-import buildWebp from './gulp/build-webp.js';
 import copyStatic from './gulp/copy-static.js';
 import { deleteAsync } from 'del';
 import gulp from 'gulp';
@@ -41,7 +40,7 @@ const build = gulp.series(
 		placePixelperfectImages,
 		placeSpriteIcons
 	),
-	gulp.parallel(buildSprite, buildWebp),
+	buildSprite,
 	isDev ? watch : gulp.parallel(buildPages, copyStatic),
 	cleanOnEnd
 );

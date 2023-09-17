@@ -40,7 +40,6 @@
 					<Picture
 						className="promo__picture"
 						filename="promo-{id}"
-						extname="png"
 						width="323"
 						height="507"
 						alt="Изображение мороженого № {id}."
